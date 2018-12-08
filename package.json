@@ -1,0 +1,18 @@
+{
+  "name": "mongo",
+  "version": "1.0.0",
+  "description": "simple mongo starter by Nirob",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nirob",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongodb": "^2.2.33"
+  }
+}

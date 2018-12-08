@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+
+<script>
+$(document).ready(function(){
+  $("#backtohome").click(function(){
+    window.location.href='/';
+  });
+  let user=localStorage.getItem('username');
+  $('#username').html(user);
+});
+</script>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+					<img src="index.jpg" alt="">
+					<button class="btn btn-default">Update Profile</button>
+			</div>
+			<div class="col-md-4">
+				<span>Welcome : <%= profileData.name %> Your profile is Completed following is your details<br></span>
+			<div>
+            Email:     <%= profileData.email %><br>
+            Gender:     <%= profileData.gender %><br>
+            <p id="username"></p>
+           
+			</div>
+			<button class="w3-btn w3-blue" id="backtohome">Back to Home</button></p>
+	
+		
+			</div>
+			<div class="col-md-4">
+	<h2>Courses</h2>
+	<div class="card">
+		<div class="card-body">
+			<p>Course List</p>
+		</div>
+	</div>
+</div>
+
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>
