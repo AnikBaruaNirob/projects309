@@ -1,14 +1,6 @@
 $(document).ready(function(){
-    $("#regBtn").click(function(){
-        $.ajax({
-          type : 'GET',
-          url : '/register',
-          success: function(data){
-            $("#regDiv").html(data);
-            //console.log(data);
-          }
-        });
-    });
+  
+   
     $("#loginBtn").click(function(){
         $.ajax({
           type : 'GET',
@@ -35,20 +27,7 @@ $(document).ready(function(){
           }
         });
     });
- //=====Register Form=============================================
-    $("#regForm").click(function(){
-      var uname  = $("#uname").val();
-      var upass = $("#upass").val();
-      var regData ={'name': uname,'pass':upass};
-        $.ajax({
-          type : 'POST',
-          url : '/regiterToDb',
-          data : regData,
-          success: function(data){
-          $("#mainDiv").html(data);
-          }
-        });
-    });
+ 
  //Save profile Data================================================
  $('#saveBtn').click(function(e){
    e.preventDefault();
@@ -56,13 +35,15 @@ $(document).ready(function(){
    
    
    var gender = $("#gender").val();
+
+   var position = $("#position").val();
    //console.log(gender);
    var name = $("#name").val();
    var pass = $("#pass").val();
    localStorage.setItem('username', name);
       $('#nav').css("display","none");
       $('#logout').css("display","block");
-   var profileData = {'email':email,'name' : name,'pass' : pass,'gender':gender};
+   var profileData = {'email':email,'name' : name,'pass' : pass,'gender':gender,'position':position};
    $.ajax({
      type : 'POST',
      url : '/completeprofile',
@@ -73,6 +54,7 @@ $(document).ready(function(){
      }
    });
  });
+ 
  
  if(localStorage.getItem('username')){
  

@@ -146,6 +146,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   .main-w3layouts {
     padding: 3em 0 1em;
   }
+  .wrapper{
+    background-color: #76b852
+  }
   
   .main-agileinfo {
     width: 35%;

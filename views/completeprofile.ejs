@@ -9,6 +9,30 @@ $(document).ready(function(){
   });
   let user=localStorage.getItem('username');
   $('#username').html(user);
+
+  
+   $('#update').click(function(e){
+    console.log("foo");
+   e.preventDefault();
+   var email = $("#email").val();
+   
+   
+   var gender = $("#gender").val();
+   //console.log(gender);
+   var name = $("#name").val();
+   var pass = $("#pass").val();
+  
+   var profileData = {'email':email,'name' : name,'pass' : pass,'gender':gender};
+   $.ajax({
+     type : 'POST',
+     url : '/update',
+     data : profileData,
+     success : function(data){
+      
+        $("#mainDiv").html(data);
+     }
+   });
+ });
 });
 </script>
 <body>
@@ -16,18 +40,60 @@ $(document).ready(function(){
 		<div class="row">
 			<div class="col-md-4">
 					<img src="index.jpg" alt="">
-					<button class="btn btn-default">Update Profile</button>
+					<button class="btn btn-default">Update picture</button>
+					
 			</div>
 			<div class="col-md-4">
-				<span>Welcome : <%= profileData.name %> Your profile is Completed following is your details<br></span>
+				<span>Welcome : <%= profileData.name %> Your profile is Completed following is your details and you login as a <%= profileData.position %> account<br></span>
 			<div>
             Email:     <%= profileData.email %><br>
             Gender:     <%= profileData.gender %><br>
+            Position    <%= profileData.position %><br>
             <p id="username"></p>
            
 			</div>
-			<button class="w3-btn w3-blue" id="backtohome">Back to Home</button></p>
-	
+			<button class="btn btn-default" id="backtohome">Back to Home</button></p>
+			<button   data-toggle="modal" data-target="#myModal" class="btn btn-default">Update Your Profile</button>
+					<div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content main-w3layouts wrapper">
+               
+                    <!-- Modal Header -->
+                    
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     
+					<input class="text" type="text" name="name"  id ="name" placeholder="Username" required="">
+          <input class="text email" type="email" name="email" id="email" placeholder="Email" required="">
+
+          
+          <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="checkbox form-check-input" id ="gender" name="gender" value="male">Male
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="checkbox form-check-input " id ="gender" name="gender" value="female">Female
+              </label>
+            </div>
+          
+          
+          
+					<input class="text" type="password"  name="pass"  id = "pass" placeholder="Password" required="">
+					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+					
+					<input type="submit" id="update" value="Update">
+			
+                    </div>
+              
+                    
+                   
+              
+                  </div>
+                </div>
+              </div>
 		
 			</div>
 			<div class="col-md-4">
